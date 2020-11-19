@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 import com.techelevator.view.Menu;
 
 import materials.Funds;
+import materials.Sellables;
 
 public class VendingMachineCLI {
 
@@ -17,6 +18,8 @@ public class VendingMachineCLI {
 	
 	private Menu menu;
 	private Funds funds = new Funds();
+	private Sellables sellables = new Sellables();
+	
 	public VendingMachineCLI(Menu menu) {
 		this.menu = menu;
 	}
