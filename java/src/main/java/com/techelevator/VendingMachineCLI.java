@@ -52,17 +52,17 @@ public class VendingMachineCLI {
 			
 			selection = (String) menu.getChoiceFromOptions(FEED_MONEY_MENU);
 			
-			if (selection.equals("1")) {
+			if (selection.equals("$1")) {
 				funds.setBalance(new BigDecimal(1));
 				
 			}
 			
-			else if (selection.equals("5")) {
+			else if (selection.equals("$5")) {
 				funds.setBalance(new BigDecimal(5));
 				
 			}
 			
-			else if (selection.equals("10")) {
+			else if (selection.equals("$10")) {
 				funds.setBalance(new BigDecimal(10));
 				
 			}
