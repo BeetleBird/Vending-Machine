@@ -18,7 +18,7 @@ public class VendingMachineCLI {
 	
 	private Menu menu;
 	private Funds funds = new Funds();
-	private Sellables sellables = new Sellables();
+	
 	
 	public VendingMachineCLI(Menu menu) {
 		this.menu = menu;
