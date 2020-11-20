@@ -1,48 +1,30 @@
 package materials;
 
-import java.io.File;
-import java.util.Scanner;
+public abstract class Sellables {
 
-public class Sellables {
-	
 	private String name;
 	private double price;
 	private String slotLocation;
 	private int quantity = 5;
 	String snackType = "";
-	public Sellables (String name, double price, String slotLocation, int quantity, String snackType) {
-	 
+
+	public Sellables(String name, double price, String slotLocation, int quantity, String snackType) {
+		
 		this.name = name;
 		this.price = price;
 		this.slotLocation = slotLocation;
 		this.quantity = quantity;
 		this.snackType = "";
-	
-	}
-	int counter = 0;
-	File productFile = new File("vendingmachine.csv");
-	Scanner scanner = new Scanner(productFile);
 
-	String line = scanner.nextLine();
+	}
 
 
-	while (scanner.hasNextLine()) {
-	
-	if (counter != 0) {
-	String[] chipArr = line.split("\\|");
-	System.out.println(chipArr[0] + chipArr[1] + chipArr[2] + chipArr[3]);
-	}
-	counter++;
-	}
-	
-	
 
 	public String getName() {
 		return name;
 	}
 
 	public double getPrice() {
-//		double [] sellablePrice = {3.05, 1.45, 2.75, 3.65 };
 		return price;
 	}
 
@@ -54,12 +36,12 @@ public class Sellables {
 		return quantity;
 	}
 
+
 	public String getSnackType() {
 		return snackType;
 
 	}
 }
-
 
 //A1|Potato Crisps|3.05|Chip
 //A2|Stackers|1.45|Chip
@@ -81,4 +63,7 @@ public class Sellables {
 //D3|Chiclets|0.75|Gum
 //D4|Triplemint|0.75|Gum
 
-
+//		String [] Chip = {"Potato Crisps", "Stackers", "Grain Waves", "Cloud Popcorn"};
+//		String [] Candy = {"Moonpie", "Cowtales", "Wonka Bar", "Crunchie"};
+//		String [] Beverage = {"Cola", "Dr. Salt", "Mountain Melter", "Heavy"};
+//		String [] Gum = {"U-Chews", "Little League Chew", "Chiclets", "Triplemint"};
