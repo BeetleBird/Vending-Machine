@@ -4,9 +4,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class Inventory extends Sellables {
+public class inventory extends Sellables {
 
-	public Inventory(String name, double price, String slotLocation, int quantity, String snackType) throws FileNotFoundException {
+	public inventory(String name, double price, String slotLocation, int quantity, String snackType) throws FileNotFoundException {
 		super(name, price, slotLocation, quantity, snackType);
 
 		

@@ -6,6 +6,10 @@ public class Beverage extends Sellables {
 		super(name, price, slotLocation, quantity, snackType);
 		
 	}
+	
+	
+	
+	
 
 	@Override
 	public String getName() {

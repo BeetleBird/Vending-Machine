@@ -5,8 +5,12 @@ import java.math.BigDecimal;
 
 import com.techelevator.view.Menu;
 
+import materials.Candy;
 import materials.Funds;
 import materials.Sellables;
+import materials.inventory;
+
+
 
 public class VendingMachineCLI {
 
@@ -17,6 +21,15 @@ public class VendingMachineCLI {
 	private static final String[] PURCHASE_MENU = { "Feed Money", "Select Product", "Finish Transaction", "Back" };
 	private static final String[] FEED_MONEY_MENU = { "1", "5", "10" };
 
+	public static void main(String[] args) {
+		Menu menu = new Menu(System.in, System.out);
+		VendingMachineCLI cli = new VendingMachineCLI(menu);
+		cli.run();
+		Candy candy = new Candy(getName(), price, slotLocation, quantity, snackType);
+		inventory inventory = new inventory();
+	}
+	
+	
 	private Menu menu;
 	private Funds funds = new Funds();
 
@@ -83,9 +96,4 @@ public class VendingMachineCLI {
 
 	}
 
-	public static void main(String[] args) {
-		Menu menu = new Menu(System.in, System.out);
-		VendingMachineCLI cli = new VendingMachineCLI(menu);
-		cli.run();
-	}
 }
