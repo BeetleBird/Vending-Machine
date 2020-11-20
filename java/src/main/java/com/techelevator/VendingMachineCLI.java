@@ -2,12 +2,14 @@ package com.techelevator;
 
 import java.io.FileNotFoundException;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.techelevator.view.Menu;
 
 import materials.Funds;
-import materials.inventory;
-
+import materials.Inventory;
+import materials.Sellables;
 
 
 public class VendingMachineCLI {
@@ -15,22 +17,25 @@ public class VendingMachineCLI {
 	private static final String MAIN_MENU_OPTION_DISPLAY_ITEMS = "Display Vending Machine Items";
 	private static final String MAIN_MENU_OPTION_PURCHASE = "Purchase";
 	private static final String MAIN_MENU_OPTION_EXIT = "Exit";
-	private static final String[] MAIN_MENU_OPTIONS = { MAIN_MENU_OPTION_DISPLAY_ITEMS, MAIN_MENU_OPTION_PURCHASE, MAIN_MENU_OPTION_EXIT };
+	private static final String[] MAIN_MENU_OPTIONS = { MAIN_MENU_OPTION_DISPLAY_ITEMS, MAIN_MENU_OPTION_PURCHASE,
+			MAIN_MENU_OPTION_EXIT };
 	private static final String[] PURCHASE_MENU = { "Feed Money", "Select Product", "Finish Transaction", "Back" };
 	private static final String[] FEED_MONEY_MENU = { "1", "5", "10" };
+	private Menu menu;
+	private Funds funds = new Funds();
+	Inventory inventoryList = new Inventory();
 
 	public static void main(String[] args) throws FileNotFoundException {
 		Menu menu = new Menu(System.in, System.out);
 		VendingMachineCLI cli = new VendingMachineCLI(menu);
 		cli.run();
-		
-		inventory inventory = new inventory();
-	
-	}
-	private Menu menu;
-	private Funds funds = new Funds();
 
-	
+	}
+
+	public Object inventoryList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	public VendingMachineCLI(Menu menu) {
 		this.menu = menu;
@@ -39,16 +44,21 @@ public class VendingMachineCLI {
 //	public VendingMachineCLI(String snackType, double price, String snackType2, int quantity, String snackType3) {
 //		// TODO Auto-generated constructor stub
 //	}
-	
 
 	public void run() {
 		while (true) {
 			String choice = (String) menu.getChoiceFromOptions(MAIN_MENU_OPTIONS);
 			System.out.println("You picked: " + choice);
 			
+	
 
 			if (choice.equals(MAIN_MENU_OPTION_DISPLAY_ITEMS)) {
-				// display vending machine items
+		
+					List<Sellables> listOfStuff = inventoryList.getSellables();
+					for (Sellables groupOfItems : listOfStuff ) {
+						System.out.println(groupOfItems.getName());
+					}
+			
 			}if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
 
 			}

@@ -24,19 +24,6 @@ public abstract class Sellables {
 		this.snackType = "";
 
 	}
-	
-
-	
-			
-			
-	
-		
-		
-	
-//		System.out.println(chipArr[0] + chipArr[1] + chipArr[2] + chipArr[3]);
-//		counter++;
-
-
 
 	public String getName() {
 		return name;
