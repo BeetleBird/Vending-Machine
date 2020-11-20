@@ -5,12 +5,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Sellables {
+public abstract class Sellables {
 
 	private String name;
-	private double price;
+	private Double price;
 	private String slotLocation;
-	private int quantity = 5;
+	private Integer quantity = 5;
 	String snackType = "";
 	
 	public static List<Sellables> sellablesList = new ArrayList<Sellables>();
@@ -25,6 +25,17 @@ public class Sellables {
 
 	}
 	
+
+	
+			
+			
+	
+		
+		
+	
+//		System.out.println(chipArr[0] + chipArr[1] + chipArr[2] + chipArr[3]);
+//		counter++;
+
 
 
 	public String getName() {
@@ -47,6 +58,19 @@ public class Sellables {
 	public String getSnackType() {
 		return snackType;
 
+	}
+
+
+
+
+
+
+
+
+
+	public void add(String slotLocation2, String name2, Double price2, String snackType2) {
+		// TODO Auto-generated method stub
+		
 	}
 }
 

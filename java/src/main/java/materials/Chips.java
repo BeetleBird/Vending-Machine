@@ -15,27 +15,7 @@ public class Chips extends Sellables {
 	
 	
 	
-	private String name;
-	private double price;
-	private String slotLocation;
-	private int quantity = 5;
-	String snackType = "";
-
 	
-	public static List<Sellables> sellablesList = new ArrayList<Sellables>();
-	
-	
-	File productFile = new File("vendingmachine.csv");
-	Scanner scanner = new Scanner(productFile);
-	while (scanner.hasNextLine()) {
-		String line = scanner.nextLine();
-		String[] snackArr = line.split("\\|");
-
-		this.slotLocation = snackArr[0];
-		name = snackArr[1];
-		price = Double.parseDouble(snackArr[2]);
-		snackType = snackArr[3];
-		break;
 	
 	
 	
