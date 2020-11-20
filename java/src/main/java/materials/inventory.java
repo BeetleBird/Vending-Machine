@@ -8,9 +8,21 @@ import com.techelevator.VendingMachineCLI;
 
 public class inventory  {
 
-	public inventory() throws FileNotFoundException {
-		
+	private String slotLocation;
+	private String name;
+	private Double price;
+	private int quantity;
+	private String snackType;
 
+	public inventory() {
+		
+		
+Sellables thisSellables = new Sellables(name, price, slotLocation, quantity, snackType) {
+	
+};
+		
+		
+		
 		
 		
 		File productFile = new File("vendingmachine.csv");
@@ -18,15 +30,34 @@ public class inventory  {
 
 		while (scanner.hasNextLine()) {
 			String line = scanner.nextLine();
+			String[] snackArr = line.split("\\|");
+				
+			slotLocation = snackArr[0];
+			name = snackArr[1];
+			price = Double.parseDouble(snackArr[2]);
+			snackType = snackArr[3];
+			break;
+		}
+		
+		
+		
 
-			int counter = 0;
-			if (counter != 0) {
-				String[] chipArr = line.split("\\|");
-				System.out.println(chipArr[0] + chipArr[1] + chipArr[2] + chipArr[3]);
-				counter++;
+		
+		
+//		File productFile = new File("vendingmachine.csv");
+//		Scanner scanner = new Scanner(productFile);
+//
+//		while (scanner.hasNextLine()) {
+//			String line = scanner.nextLine();
+//
+//			int counter = 0;
+//			if (counter != 0) {
+//				String[] chipArr = line.split("\\|");
+//				System.out.println(chipArr[0] + chipArr[1] + chipArr[2] + chipArr[3]);
+//				counter++;
+//				
+//				
 				
-				
-				System.out.println(chipArr[0]);
 				
 			}
 		}

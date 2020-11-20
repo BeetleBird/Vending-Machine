@@ -1,5 +1,10 @@
 package materials;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 public abstract class Sellables {
 
 	private String name;
@@ -7,8 +12,10 @@ public abstract class Sellables {
 	private String slotLocation;
 	private int quantity = 5;
 	String snackType = "";
+	
+	public static List<Sellables> sellablesList = new ArrayList<Sellables>();
 
-	public Sellables(String name, double price, String slotLocation, int quantity, String snackType) {
+	public Sellables(String name, Double price, String slotLocation, int quantity, String snackType) {
 		
 		this.name = name;
 		this.price = price;
@@ -17,6 +24,17 @@ public abstract class Sellables {
 		this.snackType = "";
 
 	}
+	
+
+	
+			
+			
+	
+		
+		
+	
+//		System.out.println(chipArr[0] + chipArr[1] + chipArr[2] + chipArr[3]);
+//		counter++;
 
 
 
