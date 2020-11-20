@@ -25,8 +25,8 @@ public class VendingMachineCLI {
 		Menu menu = new Menu(System.in, System.out);
 		VendingMachineCLI cli = new VendingMachineCLI(menu);
 		cli.run();
-		Candy candy = new Candy(getName(), price, slotLocation, quantity, snackType);
-		inventory inventory = new inventory();
+//		Candy candy = new Candy(getName(), price, slotLocation, quantity, snackType);
+//		inventory inventory = new inventory();
 	}
 	
 	
