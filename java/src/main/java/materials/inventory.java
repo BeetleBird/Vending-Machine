@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 import com.techelevator.VendingMachineCLI;
 
-public class inventory  {
+public class inventory {
 
 	private String slotLocation;
 	private String name;
@@ -14,36 +14,28 @@ public class inventory  {
 	private int quantity;
 	private String snackType;
 
-	public inventory() {
-		
-		
-Sellables thisSellables = new Sellables(name, price, slotLocation, quantity, snackType) {
-	
-};
-		
-		
-		
-		
-		
+	public inventory() throws FileNotFoundException {
+
+//		Sellables thisSellables = new Sellables(name, price, slotLocation, quantity, snackType);
+//		{
+//
+//		}
 		File productFile = new File("vendingmachine.csv");
 		Scanner scanner = new Scanner(productFile);
-
 		while (scanner.hasNextLine()) {
 			String line = scanner.nextLine();
 			String[] snackArr = line.split("\\|");
-				
+
 			slotLocation = snackArr[0];
 			name = snackArr[1];
 			price = Double.parseDouble(snackArr[2]);
 			snackType = snackArr[3];
 			break;
 		}
-		
-		
-		
 
-		
-		
+	}
+}
+
 //		File productFile = new File("vendingmachine.csv");
 //		Scanner scanner = new Scanner(productFile);
 //
@@ -57,11 +49,3 @@ Sellables thisSellables = new Sellables(name, price, slotLocation, quantity, sna
 //				counter++;
 //				
 //				
-				
-				
-			}
-		}
-
-	}
-
-}

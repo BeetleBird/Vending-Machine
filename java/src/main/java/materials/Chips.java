@@ -1,36 +1,44 @@
 package materials;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+
 public class Chips extends Sellables {
 
 	public Chips(String name, double price, String slotLocation, int quantity, String snackType) {
 		super(name, price, slotLocation, quantity, snackType);
-		// TODO Auto-generated constructor stub
+		
 	}
+	
+	
+	
+	private String name;
+	private double price;
+	private String slotLocation;
+	private int quantity = 5;
+	String snackType = "";
 
-	@Override
-	public String getName() {
-		// TODO Auto-generated method stub
-		return super.getName();
-	}
+	
+	public static List<Sellables> sellablesList = new ArrayList<Sellables>();
+	
+	
+	File productFile = new File("vendingmachine.csv");
+	Scanner scanner = new Scanner(productFile);
+	while (scanner.hasNextLine()) {
+		String line = scanner.nextLine();
+		String[] snackArr = line.split("\\|");
 
-	@Override
-	public double getPrice() {
-		// TODO Auto-generated method stub
-		return super.getPrice();
-	}
-
-	@Override
-	public String getSlotLocation() {
-		// TODO Auto-generated method stub
-		return super.getSlotLocation();
-	}
-
-	@Override
-	public int getQuantity() {
-		// TODO Auto-generated method stub
-		return super.getQuantity();
-	}
-
+		this.slotLocation = snackArr[0];
+		name = snackArr[1];
+		price = Double.parseDouble(snackArr[2]);
+		snackType = snackArr[3];
+		break;
+	
+	
+	
 	@Override
 	public String getSnackType() {
 		snackType = "Munch Munch, Yum!";

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public abstract class Sellables {
+public class Sellables {
 
 	private String name;
 	private double price;
@@ -25,17 +25,6 @@ public abstract class Sellables {
 
 	}
 	
-
-	
-			
-			
-	
-		
-		
-	
-//		System.out.println(chipArr[0] + chipArr[1] + chipArr[2] + chipArr[3]);
-//		counter++;
-
 
 
 	public String getName() {
