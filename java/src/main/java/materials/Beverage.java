@@ -2,6 +2,7 @@ package materials;
 
 public class Beverage extends Sellables {
 
+	
 	public Beverage(String name, double price, String slotLocation, int quantity, String snackType, String snackMotto) {
 		super(name, price, slotLocation, quantity, snackType, snackMotto);
 		
@@ -34,9 +35,9 @@ public class Beverage extends Sellables {
 	}
 	@Override
 	public String getsnackMotto() {
-		//getsnackMotto = "Glug Glug, Yum!";
+	//	snackMotto = "Glug Glug, Yum!";
 		
-		return this.getsnackMotto();
+		return super.getsnackMotto();
 		}
 	
 	

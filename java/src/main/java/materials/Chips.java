@@ -18,7 +18,7 @@ public class Chips extends Sellables {
 	@Override
 	
 	public String getsnackMotto() {
-		//snackMotto = "Munch Munch, Yum!";
+	//	snackMotto = "Munch Munch, Yum!";
 		
 		return this.getsnackMotto();
 		}

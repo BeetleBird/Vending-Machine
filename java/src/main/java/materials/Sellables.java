@@ -48,22 +48,13 @@ public abstract class Sellables {
 		return snackType;
 
 	}
-
-	public String getsnackMotto() {
 	
+	public String getsnackMotto() {
 	return snackMotto;
 	}
 
 
-
-
-
-
-
-	public void add(String slotLocation2, String name2, Double price2, String snackType2) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 }
 
 //A1|Potato Crisps|3.05|Chip
@@ -86,7 +77,3 @@ public abstract class Sellables {
 //D3|Chiclets|0.75|Gum
 //D4|Triplemint|0.75|Gum
 
-//		String [] Chip = {"Potato Crisps", "Stackers", "Grain Waves", "Cloud Popcorn"};
-//		String [] Candy = {"Moonpie", "Cowtales", "Wonka Bar", "Crunchie"};
-//		String [] Beverage = {"Cola", "Dr. Salt", "Mountain Melter", "Heavy"};
-//		String [] Gum = {"U-Chews", "Little League Chew", "Chiclets", "Triplemint"};

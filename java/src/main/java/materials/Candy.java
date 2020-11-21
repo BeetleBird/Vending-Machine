@@ -36,7 +36,7 @@ public class Candy extends Sellables {
 	public String getsnackMotto() {
 		//snackMotto = "Munch Munch, Yum!";
 		
-		return this.getsnackMotto();
+		return super.getsnackMotto();
 		}
 }
 
