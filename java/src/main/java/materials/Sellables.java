@@ -42,6 +42,10 @@ public abstract class Sellables {
 	public int getQuantity() {
 		return quantity;
 	}
+	
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
 
 
 	public String getSnackType() {

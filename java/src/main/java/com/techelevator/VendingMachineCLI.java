@@ -16,9 +16,10 @@ public class VendingMachineCLI {
 
 	private static final String MAIN_MENU_OPTION_DISPLAY_ITEMS = "Display Vending Machine Items";
 	private static String USER_SELECTED_ITEM = "";
-	private static final String MAIN_MENU_OPTION_PURCHASE = "Purchase" ;//, "Display Vending Machine Items"};
-	private static final String MAIN_MENU_OPTION_EXIT = "Exit"; 
-	private static final String[] MAIN_MENU_OPTIONS = { MAIN_MENU_OPTION_DISPLAY_ITEMS,  MAIN_MENU_OPTION_PURCHASE,  MAIN_MENU_OPTION_EXIT };
+	private static final String MAIN_MENU_OPTION_PURCHASE = "Purchase";// , "Display Vending Machine Items"};
+	private static final String MAIN_MENU_OPTION_EXIT = "Exit";
+	private static final String[] MAIN_MENU_OPTIONS = { MAIN_MENU_OPTION_DISPLAY_ITEMS, MAIN_MENU_OPTION_PURCHASE,
+			MAIN_MENU_OPTION_EXIT };
 	private static final String[] PURCHASE_MENU = { "Feed Money", "Select Product", "Finish Transaction", "Back" };
 	private static final String[] FEED_MONEY_MENU = { "1", "5", "10", "Back" };
 	private Menu menu;
@@ -56,35 +57,71 @@ public class VendingMachineCLI {
 				List<Sellables> listOfStuff = inventoryList.getSellables();
 				for (Sellables groupOfItems : listOfStuff) {
 					Integer quanity = groupOfItems.getQuantity();
-					System.out.println(groupOfItems.getName() + "|" + groupOfItems.getSnackType() + quanity + " remaining"); //snacktype not printing
-				
-					
+					System.out.println(
+							groupOfItems.getName() + "|" + groupOfItems.getSnackType() + quanity + " remaining"); // snacktype
+																													// not
+																													// printing
 
 				}
 			}
 			if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
-				List<Sellables> listOfStuff = inventoryList.getSellables();
 
-				for (Sellables groupOfItems : listOfStuff) {
-					Integer quanity = groupOfItems.getQuantity();
-					System.out.println(groupOfItems.getSlotLocation() + "|" + groupOfItems.getName() + "|"
-							+ groupOfItems.getPrice() + "|" + groupOfItems.getSnackType() + quanity + " REMAINING");
-					if (choice.equals(groupOfItems.getSlotLocation())) {
-						Scanner scanner = new Scanner(System.in); // choice, System.in ???
-						String someName = scanner.nextLine();  // holding user input of "A1"
+				// do purchase
+
+				String selection = "";
+
+				while (!selection.equals("Back")) {
+					selection = (String) menu.getChoiceFromOptions(PURCHASE_MENU);
+
+					if (selection.equals("Feed Money")) {
+						processMoney();
+					}
+
+					if (selection.equals("Select Product")) {
+
+						List<Sellables> listOfStuff = inventoryList.getSellables();
+
+						for (Sellables groupOfItems : listOfStuff) {
+							Integer quanity = groupOfItems.getQuantity();
+							System.out.println(groupOfItems.getSlotLocation() + "|" + groupOfItems.getName() + "|"
+									+ groupOfItems.getPrice() + "|" + groupOfItems.getSnackType() + quanity
+									+ " REMAINING");
+
+						}
+						
+						
+						// 1. Let's ask the user what they want.
+						Scanner scanner = new Scanner(System.in); 
+						System.out.println("Select something");
+						String someName = scanner.nextLine(); 
 
 						
-						if (someName.equals(groupOfItems.getSlotLocation())) {   // storing A1 location?  
-						String userSelectedItem = "";
-						
-						listOfStuff.add(groupOfItems);
-						
-						quanity = quanity - Integer.parseInt(someName);
-						System.out.println("There is  " + quanity + " remaining!");
-					} else if (quanity == 0) {
-						System.out.println("SOLD OUT");
+						// 2. Loop through the inventory list and see if we can find it.
+						for (Sellables items : listOfStuff) {
+							
+							
+							// TODO:
+							// - If you don't have enough money, you can't go into this if block.
+							
+							if (someName.equals (items.getSlotLocation()) ) {
+								
+								//TODO: 
+								// - If the inventory is already zero, you can't deduct the qty, and
+								// therefore you can't buy 
+								int currentQty = items.getQuantity();
+								int newQty = currentQty - 1;
+								items.setQuantity(newQty);
+								
+							}
+							
+						}
+									
 					}
+
+					if (selection.contentEquals("Finish Transaction")) {
+						// do finish transaction stuff;
 					}
+
 				}
 
 			}
@@ -93,37 +130,9 @@ public class VendingMachineCLI {
 
 			}
 
-			// do purchase
-
-			String selection = "";
-
-			while (!selection.equals("Back")) {
-				selection = (String) menu.getChoiceFromOptions(PURCHASE_MENU);
-
-				if (selection.equals("Feed Money")) {
-					processMoney();
-				}
-				
-				
-				if (selection.equals("Select Product")) {
-					
-					List<Sellables> listOfStuff = inventoryList.getSellables();
-
-					for (Sellables groupOfItems : listOfStuff) {
-						Integer quanity = groupOfItems.getQuantity();
-						System.out.println(groupOfItems.getSlotLocation() + "|" + groupOfItems.getName() + "|"
-								+ groupOfItems.getPrice() + "|" + groupOfItems.getSnackType() + quanity + " REMAINING");
-					
-				}
-				}
-				
-				
-
-				System.out.println("You selected from the 2nd level: " + selection);
-
-			}
 		}
 	}
+
 
 	public void processMoney() {
 
