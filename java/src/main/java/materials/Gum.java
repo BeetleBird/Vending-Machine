@@ -2,8 +2,8 @@ package materials;
 
 public class Gum extends Sellables{
 
-	public Gum(String name, double price, String slotLocation, int quantity, String snackType) {
-		super(name, price, slotLocation, quantity, snackType);
+	public Gum(String name, double price, String slotLocation, int quantity, String snackType, String snackMotto) {
+		super(name, price, slotLocation, quantity, snackType, snackMotto);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -32,9 +32,9 @@ public class Gum extends Sellables{
 	}
 
 	@Override
-	public String getSnackType() {
-		snackType = "Chew Chew, Yum!";
-		return this.getSnackType();
+	public String getsnackMotto() {
+		//snackMotto = "Chew Chew, Yum!";
+		return this.getsnackMotto();
 	}
 	
 	

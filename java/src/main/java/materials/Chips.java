@@ -8,22 +8,23 @@ import java.util.Scanner;
 
 public class Chips extends Sellables {
 
-	public Chips(String name, double price, String slotLocation, int quantity, String snackType) {
-		super(name, price, slotLocation, quantity, snackType);
+	public Chips(String name, double price, String slotLocation, int quantity, String snackType,String snackMotto) {
+		super(name, price, slotLocation, quantity, snackType, snackMotto);
 		
 	}
 	
 	
 	
-	
-	
-	
-	
 	@Override
-	public String getSnackType() {
-		snackType = "Munch Munch, Yum!";
-		return this.getSnackType();
-	}
+	
+	public String getsnackMotto() {
+		//snackMotto = "Munch Munch, Yum!";
+		
+		return this.getsnackMotto();
+		}
+	
+	
+	
 	
 	
 

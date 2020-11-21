@@ -12,16 +12,18 @@ public abstract class Sellables {
 	private String slotLocation;
 	private Integer quantity = 5;
 	String snackType = "";
+	private String snackMotto;
 	
 	public static List<Sellables> sellablesList = new ArrayList<Sellables>();
 
-	public Sellables(String name, Double price, String slotLocation, int quantity, String snackType) {
+	public Sellables(String name, Double price, String slotLocation, int quantity, String snackType, String snackMotto) {
 		
 		this.name = name;
 		this.price = price;
 		this.slotLocation = slotLocation;
 		this.quantity = quantity;
 		this.snackType = "";
+		this.snackMotto = snackMotto;
 
 	}
 
@@ -47,7 +49,10 @@ public abstract class Sellables {
 
 	}
 
-
+	public String getsnackMotto() {
+	
+	return snackMotto;
+	}
 
 
 

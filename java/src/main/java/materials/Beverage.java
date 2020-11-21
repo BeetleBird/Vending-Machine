@@ -2,8 +2,8 @@ package materials;
 
 public class Beverage extends Sellables {
 
-	public Beverage(String name, double price, String slotLocation, int quantity, String snackType) {
-		super(name, price, slotLocation, quantity, snackType);
+	public Beverage(String name, double price, String slotLocation, int quantity, String snackType, String snackMotto) {
+		super(name, price, slotLocation, quantity, snackType, snackMotto);
 		
 	}
 	
@@ -32,13 +32,23 @@ public class Beverage extends Sellables {
 		// TODO Auto-generated method stub
 		return super.getQuantity();
 	}
-
 	@Override
-	public String getSnackType() {
-		snackType = "Glug Glug, Yum!";
-		return this.getSnackType();
-	}
+	public String getsnackMotto() {
+		//getsnackMotto = "Glug Glug, Yum!";
+		
+		return this.getsnackMotto();
+		}
 	
+	
+	
+	
+	
+//	@Override
+//	public String getSnackType() {
+//		
+//		return this.getSnackType();
+//	}
+//	
 	
 	
 	

@@ -56,7 +56,7 @@ public class VendingMachineCLI {
 		
 					List<Sellables> listOfStuff = inventoryList.getSellables();
 					for (Sellables groupOfItems : listOfStuff ) {
-						System.out.println(groupOfItems.getName());
+						System.out.println(groupOfItems.getSlotLocation() + "|" + groupOfItems.getName() + "|" + groupOfItems.getPrice() +  groupOfItems.getSnackType());
 					}
 			
 			}if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
