@@ -20,7 +20,7 @@ public class VendingMachineCLI {
 	private static final String[] MAIN_MENU_OPTIONS = { MAIN_MENU_OPTION_DISPLAY_ITEMS, MAIN_MENU_OPTION_PURCHASE,
 			MAIN_MENU_OPTION_EXIT };
 	private static final String[] PURCHASE_MENU = { "Feed Money", "Select Product", "Finish Transaction", "Back" };
-	private static final String[] FEED_MONEY_MENU = { "1", "5", "10" };
+	private static final String[] FEED_MONEY_MENU = { "1", "5", "10", "Back" };
 	private Menu menu;
 	private Funds funds = new Funds();
 	Inventory inventoryList = new Inventory();
@@ -68,16 +68,21 @@ public class VendingMachineCLI {
 			}
 			if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
 				List<Sellables> listOfStuff = inventoryList.getSellables();
-				Scanner scan = new Scanner(System.in);
+				
 				for (Sellables groupOfItems : listOfStuff) {
 					Integer quanity =  groupOfItems.getQuantity();
 					System.out.println(groupOfItems.getSlotLocation() + "|" + groupOfItems.getName() + "|" 
-							+ groupOfItems.getPrice() + "|" + groupOfItems.getSnackType() + quanity + " remaining");
-					if ( choice.equals( groupOfItems.getSlotLocation() )) {
+							+ groupOfItems.getPrice() + "|" + groupOfItems.getSnackType() + quanity + " REMAINING");
+					
+					if (choice.equals(groupOfItems.getSlotLocation())) {
+						
+						Scanner scanner = new Scanner(choice);
+						String someName = scanner.nextLine();
+						
 						int userSelectedItem = 1;
-					//	scan.equals(listOfStuff);
-						quanity =  quanity - userSelectedItem ;
+						quanity =  quanity - Integer.parseInt(someName) ;
 						System.out.println("There is  " + quanity + " remaining!");
+						
 					}else if (quanity ==  0) {
 						System.out.println("SOLD OUT");
 					}
@@ -117,20 +122,23 @@ public class VendingMachineCLI {
 
 			selection = (String) menu.getChoiceFromOptions(FEED_MONEY_MENU);
 
-			if (selection.equals("$1")) {
+			if (selection.equals("1")) {
 				funds.setBalance(new BigDecimal(1));
 
 			}
 
-			else if (selection.equals("$5")) {
+			else if (selection.equals("5")) {
 				funds.setBalance(new BigDecimal(5));
 
 			}
 
-			else if (selection.equals("$10")) {
+			else if (selection.equals("10")) {
 				funds.setBalance(new BigDecimal(10));
 
 			}
+//			if (selection.equals("Back")) {
+//				selection = (String) menu.getChoiceFromOptions(PURCHASE_MENU);
+			//}
 
 			System.out.println("You have $" + funds.getBalance());
 		}

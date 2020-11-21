@@ -10,6 +10,7 @@ import com.techelevator.VendingMachineCLI;
 import com.techelevator.view.Menu;
 
 public class Inventory {
+	
 
 	private List<Sellables> sellablesList = new ArrayList<Sellables>();
 
@@ -26,7 +27,7 @@ public class Inventory {
 			String[] snackArr = line.split("\\|");
 
 			if (snackArr[3].equals("Chip")) {
-				Sellables chips = new Chips(snackArr[1], Double.parseDouble(snackArr[2]), snackArr[0], 5, snackArr[3], " ");
+				Sellables chips = new Chips(snackArr[1], Double.parseDouble(snackArr[2]), snackArr[0], 5, snackArr[3], "Crunch Cruch, Yum");
 				sellablesList.add(chips);
 			}
 			if (snackArr[3].equals("Candy")) {
@@ -53,5 +54,9 @@ public class Inventory {
 	}
 	
 	
+		
+	}
+	
+	
 
-}
+

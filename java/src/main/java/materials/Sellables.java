@@ -58,8 +58,6 @@ public abstract class Sellables {
 //		return null;
 //	}
 
-
-	
 }
 
 //A1|Potato Crisps|3.05|Chip
