@@ -32,12 +32,18 @@ public class Candy extends Sellables {
 	}
 
 	
-	@Override
-	public String getsnackMotto() {
-		//snackMotto = "Munch Munch, Yum!";
+	public String setSnackMotto() {
+	//this.snackMotto = "Munch Munch, Yum!";
 		
 		return super.getsnackMotto();
 		}
+	
+
+	@Override
+	public String getSnackType() {
+	return super.getSnackType();
+	}
+	
 }
 
 

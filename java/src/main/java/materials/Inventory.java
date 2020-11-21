@@ -26,7 +26,7 @@ public class Inventory {
 			String[] snackArr = line.split("\\|");
 
 			if (snackArr[3].equals("Chip")) {
-				Sellables chips = new Chips(snackArr[1], Double.parseDouble(snackArr[2]), snackArr[0], 5, snackArr[3], "Munch Munch, Yum!");
+				Sellables chips = new Chips(snackArr[1], Double.parseDouble(snackArr[2]), snackArr[0], 5, snackArr[3], "Crunch Crunch, Yum!");
 				sellablesList.add(chips);
 			}
 			if (snackArr[3].equals("Candy")) {

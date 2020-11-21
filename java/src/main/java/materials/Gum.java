@@ -33,9 +33,15 @@ public class Gum extends Sellables{
 
 	@Override
 	public String getsnackMotto() {
-	//	getsnackMotto() = "Chew Chew, Yum!";
-		return super.getsnackMotto();
+		return this.getsnackMotto();
 	}
+	
+	
+	@Override
+	public String getSnackType() {
+	return super.getSnackType();
+	}
+	
 	
 	
 

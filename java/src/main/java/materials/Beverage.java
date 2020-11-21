@@ -42,14 +42,12 @@ public class Beverage extends Sellables {
 	
 	
 	
+	@Override
+	public String getSnackType() {
+	return super.getSnackType();
+	}
 	
 	
-//	@Override
-//	public String getSnackType() {
-//		
-//		return this.getSnackType();
-//	}
-//	
 	
 	
 	

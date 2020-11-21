@@ -53,6 +53,11 @@ public abstract class Sellables {
 	return snackMotto;
 	}
 
+//	public String setsnackMotto() {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+
 
 	
 }

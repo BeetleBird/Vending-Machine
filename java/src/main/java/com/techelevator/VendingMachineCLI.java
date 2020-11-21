@@ -41,9 +41,6 @@ public class VendingMachineCLI {
 		this.menu = menu;
 	}
 
-//	public VendingMachineCLI(String snackType, double price, String snackType2, int quantity, String snackType3) {
-//		// TODO Auto-generated constructor stub
-//	}
 
 	public void run() {
 		while (true) {
@@ -56,7 +53,7 @@ public class VendingMachineCLI {
 		
 					List<Sellables> listOfStuff = inventoryList.getSellables();
 					for (Sellables groupOfItems : listOfStuff ) {
-						System.out.println(groupOfItems.getSlotLocation() + "|" + groupOfItems.getName() + "|" + groupOfItems.getPrice() +  groupOfItems.getSnackType());
+						System.out.println(groupOfItems.getSlotLocation() + "|" + groupOfItems.getName() + "|" + groupOfItems.getPrice() + "|" +  groupOfItems.getSnackType());
 					}
 			
 			}if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
