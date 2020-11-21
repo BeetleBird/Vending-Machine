@@ -15,8 +15,7 @@ import materials.Sellables;
 public class VendingMachineCLI {
 
 	private static final String MAIN_MENU_OPTION_DISPLAY_ITEMS = "Display Vending Machine Items";
-	private static String USER_SELECTED_ITEM = "";
-	private static final String MAIN_MENU_OPTION_PURCHASE = "Purchase";// , "Display Vending Machine Items"};
+	private static final String MAIN_MENU_OPTION_PURCHASE = "Purchase";
 	private static final String MAIN_MENU_OPTION_EXIT = "Exit";
 	private static final String[] MAIN_MENU_OPTIONS = { MAIN_MENU_OPTION_DISPLAY_ITEMS, MAIN_MENU_OPTION_PURCHASE,
 			MAIN_MENU_OPTION_EXIT };
@@ -88,34 +87,40 @@ public class VendingMachineCLI {
 									+ " REMAINING");
 
 						}
-						
-						
+
 						// 1. Let's ask the user what they want.
-						Scanner scanner = new Scanner(System.in); 
-						System.out.println("Select something");
-						String someName = scanner.nextLine(); 
+						Scanner scanner = new Scanner(System.in);
+						System.out.println("Select something to buy");
+						String someName = scanner.nextLine();
 
 						
 						// 2. Loop through the inventory list and see if we can find it.
 						for (Sellables items : listOfStuff) {
-							
-							
+
 							// TODO:
 							// - If you don't have enough money, you can't go into this if block.
 							
-							if (someName.equals (items.getSlotLocation()) ) {
+							//if (funds.getBalance(new BigDecimal()) < 0.75 ); {
 								
-								//TODO: 
+							//	System.out.println("Ope, enter more money");
+							//}
+
+							
+
+							if (someName.equals(items.getSlotLocation())) {
+
+								// TODO:
 								// - If the inventory is already zero, you can't deduct the qty, and
-								// therefore you can't buy 
+								// therefore you can't buy
+
 								int currentQty = items.getQuantity();
 								int newQty = currentQty - 1;
 								items.setQuantity(newQty);
-								
+
 							}
-							
+
 						}
-									
+
 					}
 
 					if (selection.contentEquals("Finish Transaction")) {
@@ -132,7 +137,6 @@ public class VendingMachineCLI {
 
 		}
 	}
-
 
 	public void processMoney() {
 
