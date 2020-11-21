@@ -100,10 +100,33 @@ public class VendingMachineCLI {
 							// TODO:
 							// - If you don't have enough money, you can't go into this if block.
 							
-							//if (funds.getBalance(new BigDecimal()) < 0.75 ); {
+							
+							//boolean isEnoughFunds = true
+							//holds user balance 
+							Double currentFunds = funds.getBalance();
+							
+							//Double fundLimit = 0.75;
+							Double itemPrice = items.getPrice();
+							
+							
+							
+							if (currentFunds < 0.75) {
+								System.out.println("Ope, enter more money");
+								break;
+							}
+							else if (currentFunds >= itemPrice) {
+								for (double i = currentFunds; i < itemPrice; i--) {
+									currentFunds -= itemPrice;	
+								}
 								
-							//	System.out.println("Ope, enter more money");
-							//}
+								
+								
+							}
+							else if (currentFunds < itemPrice) {
+								System.out.println("Ope, your current balance is " + currentFunds + " please add more funds.");
+								continue;
+							}
+							
 
 							
 
@@ -116,6 +139,10 @@ public class VendingMachineCLI {
 								int currentQty = items.getQuantity();
 								int newQty = currentQty - 1;
 								items.setQuantity(newQty);
+								System.out.println("There is " + newQty + " remaining!");
+								System.out.println("You have $" + currentFunds + " remaining.");
+								if (newQty == 0) {
+								System.out.println("SOLD OUT");
 
 							}
 
@@ -132,9 +159,8 @@ public class VendingMachineCLI {
 			}
 
 			if (choice.equals(MAIN_MENU_OPTION_EXIT)) {
-
 			}
-
+			}
 		}
 	}
 
@@ -146,17 +172,17 @@ public class VendingMachineCLI {
 			selection = (String) menu.getChoiceFromOptions(FEED_MONEY_MENU);
 
 			if (selection.equals("1")) {
-				funds.setBalance(new BigDecimal(1));
+				funds.setBalance(1);
 
 			}
 
 			else if (selection.equals("5")) {
-				funds.setBalance(new BigDecimal(5));
+				funds.setBalance(5);
 
 			}
 
 			else if (selection.equals("10")) {
-				funds.setBalance(new BigDecimal(10));
+				funds.setBalance(10);
 
 			}
 

@@ -1,8 +1,10 @@
 package materials;
 
+import java.math.BigDecimal;
+
 public class Gum extends Sellables{
 
-	public Gum(String name, double price, String slotLocation, int quantity, String snackType, String snackMotto) {
+	public Gum(String name, Double price, String slotLocation, int quantity, String snackType, String snackMotto) {
 		super(name, price, slotLocation, quantity, snackType, snackMotto);
 		// TODO Auto-generated constructor stub
 	}
@@ -14,7 +16,7 @@ public class Gum extends Sellables{
 	}
 
 	@Override
-	public double getPrice() {
+	public Double getPrice() {
 		// TODO Auto-generated method stub
 		return super.getPrice();
 	}

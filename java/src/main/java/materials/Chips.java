@@ -1,13 +1,14 @@
 package materials;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Chips extends Sellables {
 
-	public Chips(String name, double price, String slotLocation, int quantity, String snackType, String snackMotto) {
+	public Chips(String name, Double price, String slotLocation, int quantity, String snackType, String snackMotto) {
 		super(name, price, slotLocation, quantity, snackType, snackMotto);
 
 	}
@@ -19,7 +20,7 @@ public class Chips extends Sellables {
 	}
 
 	@Override
-	public double getPrice() {
+	public Double getPrice() {
 		// TODO Auto-generated method stub
 		return super.getPrice();
 	}

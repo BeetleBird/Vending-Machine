@@ -4,13 +4,14 @@ import java.math.BigDecimal;
 
 public class Funds {
 	
-	private BigDecimal balance = new BigDecimal(0);
+	private double balance = 0;
+	private double getBalance; 
 
-	public BigDecimal getBalance() {
+	public double getBalance() {
 		return balance;
 	}
 
-	public void setBalance(BigDecimal amountAdded) {
-		this.balance = this.balance.add(amountAdded);
+	public void setBalance(double amountAdded) {
+		this.balance = this.balance + amountAdded;
 	}
 }

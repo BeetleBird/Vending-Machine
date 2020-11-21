@@ -1,6 +1,7 @@
 package materials;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -31,7 +32,7 @@ public abstract class Sellables {
 		return name;
 	}
 
-	public double getPrice() {
+	public Double getPrice() {
 		return price;
 	}
 
