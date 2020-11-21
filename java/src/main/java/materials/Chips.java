@@ -7,8 +7,8 @@ import java.util.Scanner;
 
 public class Chips extends Sellables {
 
-	public Chips(String name, double price, String slotLocation, int quantity, String snackType, String snackMotto) {
-		super(name, price, slotLocation, quantity, snackType, snackMotto);
+	public Chips(String name, double price, String slotLocation, int quantity, String snackType) {
+		super(name, price, slotLocation, quantity, snackType);
 
 	}
 
