@@ -1,7 +1,5 @@
 package materials;
 
-import java.math.BigDecimal;
-
 public class Gum extends Sellables{
 
 	public Gum(String name, Double price, String slotLocation, int quantity, String snackType, String snackMotto) {
@@ -33,10 +31,10 @@ public class Gum extends Sellables{
 		return super.getQuantity();
 	}
 
-	@Override
-	public String getsnackMotto() {
-		return this.getsnackMotto();
-	}
+//	@Override
+//	public String getsnackMotto() {
+//		return this.getsnackMotto();
+//	}
 	
 	
 	@Override

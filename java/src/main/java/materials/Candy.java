@@ -1,7 +1,5 @@
 package materials;
 
-import java.math.BigDecimal;
-
 public class Candy extends Sellables {
 
 	public Candy(String name, Double price, String slotLocation, int quantity, String snackType, String snackMotto) {

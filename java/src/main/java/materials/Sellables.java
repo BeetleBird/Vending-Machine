@@ -1,10 +1,7 @@
 package materials;
 
-import java.io.File;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public abstract class Sellables {
 
@@ -15,7 +12,7 @@ public abstract class Sellables {
 	String snackType = "";
 	private String snackMotto;
 	
-	public static List<Sellables> sellablesList = new ArrayList<Sellables>();
+	//public static List<Sellables> sellablesList = new ArrayList<Sellables>();
 
 	public Sellables(String name, Double price, String slotLocation, int quantity, String snackType, String snackMotto) {
 		
@@ -58,10 +55,10 @@ public abstract class Sellables {
 	return snackMotto;
 	}
 
-//	public String setsnackMotto() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
+	public String setsnackMotto() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
 

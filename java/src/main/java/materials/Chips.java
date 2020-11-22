@@ -1,11 +1,5 @@
 package materials;
 
-import java.io.File;
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-
 public class Chips extends Sellables {
 
 	public Chips(String name, Double price, String slotLocation, int quantity, String snackType, String snackMotto) {
@@ -37,10 +31,10 @@ public class Chips extends Sellables {
 		return super.getQuantity();
 	}
 
-	@Override
-	public String getsnackMotto() {
-		return this.getsnackMotto();
-	}
+//	@Override
+//	public String getsnackMotto() {
+//		return this.getsnackMotto();
+//	}
 	
 	
 	@Override

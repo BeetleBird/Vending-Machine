@@ -1,7 +1,5 @@
 package materials;
 
-import java.math.BigDecimal;
-
 public class Funds {
 	
 	private double balance = 0;

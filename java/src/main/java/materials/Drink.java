@@ -1,11 +1,9 @@
 package materials;
 
-import java.math.BigDecimal;
-
-public class Beverage extends Sellables {
+public class Drink extends Sellables {
 
 	
-	public Beverage(String name, Double price, String slotLocation, int quantity, String snackType, String snackMotto) {
+	public Drink(String name, Double price, String slotLocation, int quantity, String snackType, String snackMotto) {
 		super(name, price, slotLocation, quantity, snackType, snackMotto);
 		
 	}
@@ -37,7 +35,7 @@ public class Beverage extends Sellables {
 	}
 	@Override
 	public String getsnackMotto() {
-	//	snackMotto = "Glug Glug, Yum!";
+		//snackMotto = "Glug Glug, Yum!";
 		
 		return super.getsnackMotto();
 		}

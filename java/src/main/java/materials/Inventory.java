@@ -27,7 +27,7 @@ public class Inventory {
 			String[] snackArr = line.split("\\|");
 
 			if (snackArr[3].equals("Chip")) {
-				Sellables chips = new Chips(snackArr[1], Double.parseDouble(snackArr[2]), snackArr[0], 5, snackArr[3], "Crunch Cruch, Yum");
+				Sellables chips = new Chips(snackArr[1], Double.parseDouble(snackArr[2]), snackArr[0], 5, snackArr[3],  "Crunch Crunch, Yum!");
 				sellablesList.add(chips);
 			}
 			if (snackArr[3].equals("Candy")) {
@@ -38,9 +38,9 @@ public class Inventory {
 				Sellables gum = new Gum(snackArr[1], Double.parseDouble(snackArr[2]), snackArr[0], 5, snackArr[3], "Chew Chew, Yum!");
 				sellablesList.add(gum);
 			}
-			if (snackArr[3].equals("Beverage")) {
-				Sellables beverage = new Beverage(snackArr[1], Double.parseDouble(snackArr[2]), snackArr[0], 5, snackArr[3], "Glug Glug, Yum!");
-				sellablesList.add(beverage);
+			if (snackArr[3].equals("Drink")) {
+				Sellables drink = new Drink(snackArr[1], Double.parseDouble(snackArr[2]), snackArr[0], 5, snackArr[3], "Glug Glug, Yum!");
+				sellablesList.add(drink);
 			}
 
 		}
@@ -54,7 +54,6 @@ public class Inventory {
 	}
 	
 	
-		
 	}
 	
 	
