@@ -44,6 +44,7 @@ public class Drink extends Sellables {
 	
 	@Override
 	public String getSnackType() {
+		snackType = "Drink";
 	return super.getSnackType();
 	}
 	

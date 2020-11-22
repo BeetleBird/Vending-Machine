@@ -12,4 +12,8 @@ public class Funds {
 	public void setBalance(double amountAdded) {
 		this.balance = this.balance + amountAdded;
 	}
+	
+	public void deductBalance (double amountSubtracted) {
+		this.balance = this.balance - amountSubtracted;
+	}
 }

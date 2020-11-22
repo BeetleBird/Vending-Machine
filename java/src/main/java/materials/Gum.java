@@ -39,6 +39,7 @@ public class Gum extends Sellables{
 	
 	@Override
 	public String getSnackType() {
+		snackType = "Gum";
 	return super.getSnackType();
 	}
 	

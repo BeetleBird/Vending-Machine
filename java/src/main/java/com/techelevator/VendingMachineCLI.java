@@ -24,7 +24,6 @@ public class VendingMachineCLI {
 	private Menu menu;
 	private Funds funds = new Funds();
 	Inventory inventoryList = new Inventory();
-	
 
 	public static void main(String[] args) throws FileNotFoundException {
 		Menu menu = new Menu(System.in, System.out);
@@ -57,11 +56,7 @@ public class VendingMachineCLI {
 				List<Sellables> listOfStuff = inventoryList.getSellables();
 				for (Sellables groupOfItems : listOfStuff) {
 					Integer quanity = groupOfItems.getQuantity();
-					System.out.println(
-							groupOfItems.getName() + "|" + groupOfItems.getSnackType() + quanity + " remaining"); // snacktype
-																													// not
-																													// printing
-
+					System.out.println(groupOfItems.getName() + "|" + groupOfItems.getSnackType());
 				}
 			}
 			if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
@@ -84,14 +79,14 @@ public class VendingMachineCLI {
 						for (Sellables groupOfItems : listOfStuff) {
 							Integer quanity = groupOfItems.getQuantity();
 							System.out.println(groupOfItems.getSlotLocation() + "|" + groupOfItems.getName() + "|"
-									+ groupOfItems.getPrice() + "|" + groupOfItems.getSnackType() + quanity
+									+ groupOfItems.getPrice() + "|" + groupOfItems.getSnackType() + "|" + quanity
 									+ " REMAINING");
 
 						}
 
 						// 1. Let's ask the user what they want.
 						Scanner scanner = new Scanner(System.in);
-						System.out.println("Select something to buy");
+						System.out.println("\n" + "Select something to buy");
 						String someName = scanner.nextLine().toUpperCase();
 
 						// 2. Loop through the inventory list and see if we can find it.
@@ -103,22 +98,25 @@ public class VendingMachineCLI {
 							// boolean isEnoughFunds = true
 							// holds user balance
 							Double currentFunds = funds.getBalance();
-
-							// Double fundLimit = 0.75;
 							Double itemPrice = items.getPrice();
+							Double fundsAfterPurchase = currentFunds - itemPrice;
 
 							if (currentFunds < 0.75) {
 								System.out.println("Ope, enter more money");
 								break;
-							} else if (currentFunds >= itemPrice) {
-								for (double i = currentFunds; i < itemPrice; i--) {     // money not being deducted after purchase
-									currentFunds -= itemPrice;
-								}
 
 							} else if (currentFunds < itemPrice) {
 								System.out.println(
 										"Ope, your current balance is " + currentFunds + " please add more funds.");
 								continue;
+								
+							} else if (currentFunds >= itemPrice) {
+								for (double i = currentFunds; i > itemPrice; i--) { // money not being deducted after
+																					// purchase
+									i -= i;
+
+//								}
+
 							}
 
 							if (someName.equals(items.getSlotLocation())) {
@@ -131,9 +129,11 @@ public class VendingMachineCLI {
 								int newQty = currentQty - 1;
 								items.setQuantity(newQty);
 								if (newQty >= 1) {
-									System.out.println("You selected " + items.getName() );
-									System.out.println("There is " + newQty + " remaining! " + items.getsnackMotto());
-									System.out.println("You have $" + currentFunds + " remaining.");
+									System.out.println(
+											"\n" + "You've selected " + items.getName() + "! " + items.getsnackMotto());
+									System.out.println(
+											"\n" + "There are " + newQty + " " + items.getName() + " remaining! ");
+									System.out.println("\n" + "You have $" + fundsAfterPurchase + " left.");
 
 								} else if (newQty <= 0) {
 									System.out.println("SOLD OUT");
@@ -154,6 +154,7 @@ public class VendingMachineCLI {
 
 				if (choice.equals(MAIN_MENU_OPTION_EXIT)) {
 				}
+			}
 			}
 		}
 	}
