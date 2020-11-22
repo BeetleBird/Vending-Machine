@@ -70,7 +70,7 @@ public class VendingMachineCLI {
 					if (selection.equals("Select Product")) {
 
 						List<Sellables> listOfStuff = inventoryList.getSellables();
-					
+
 						for (Sellables groupOfItems : listOfStuff) {
 							Integer quanity = groupOfItems.getQuantity();
 							System.out.println(groupOfItems.getSlotLocation() + "|" + groupOfItems.getName() + "|"
@@ -90,17 +90,16 @@ public class VendingMachineCLI {
 							// TODO:
 							// - If you don't have enough money, you can't go into this if block.
 
-							// boolean isEnoughFunds = true
-							// holds user balance
+						
 							Double currentFunds = funds.getBalance();
 							Double itemPrice = items.getPrice();
-							Double fundsAfterPurchase = funds.getDeductBalance();
+
+							
 
 							if (currentFunds < 0.75) {
 								System.out.println("Ope, enter more money");
 								break;
 							}
-							
 
 							if (someName.equals(items.getSlotLocation())) {
 
@@ -115,50 +114,48 @@ public class VendingMachineCLI {
 								while (funds.getBalance() >= items.getPrice()) {
 
 									if (newQty >= 1) {
-										funds.setDeductBalance(itemPrice);
+										funds.setDeductBalance(itemPrice); 
+										
+										
+								
 										System.out.println("\n" + "You've selected " + items.getName() + "! "
 												+ items.getsnackMotto());
+
 										System.out.println(
 												"\n" + "There are " + newQty + " " + items.getName() + " remaining! ");
+										
 									}
+
+
+
+									if (newQty <= 0) {
+										System.out.println("SOLD OUT");
+									}
+
 									System.out.println("\n" + "You have $" + funds.getBalance() + " left.");
-									menu.getChoiceFromOptions(PURCHASE_MENU);
-									continue;
-									if (fundsAfterPurchase < itemPrice) {
-										System.out.println("Ope, your current balance is " + fundsAfterPurchase
+
+									if (currentFunds < itemPrice) {
+										System.out.println("Ope, your current balance is " + currentFunds
 												+ " please add more funds.");
 									}
+									break;
 
-									else if (newQty <= 0) {
-										System.out.println("SOLD OUT");
+//									if (selection.contentEquals("Finish Transaction")) {
+//										// do finish transaction stuff;
+//									}
+//
+//									if (choice.equals(MAIN_MENU_OPTION_EXIT)) {
+//									}
+								}
+							}
+						}
 
-									}
-								
-								
-							
-
-						
-
-					
-
-						
-						
-						
-//						
-//						if (selection.contentEquals("Finish Transaction")) {
-//							// do finish transaction stuff;
-//						}
-////
-////						if (choice.equals(MAIN_MENU_OPTION_EXIT)) {
-////						}
-////							
-						
-						
-						
-						
-				
-			
 					}
+				}
+			}
+		}
+
+	}
 
 	public void processMoney() {
 
