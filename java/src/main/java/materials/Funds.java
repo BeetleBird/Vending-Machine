@@ -21,7 +21,21 @@ public class Funds {
 		
 	this.balance = this.balance - amountSubtracted;
 	}
+	
+	public Double changeBack() {
+		Double[] change = new Double[] {0.25, 0.10, 0.05};
+		  String[] coin = new String[] {"Quarter(s)", "Dime(s)", "Nickle(s)"};
+		  for(int i = 0; i < change.length; i++) {
+		    	  int counter;
+		    	  counter = (int) (balance / change[i]);
+
+		      balance -= (change[i] * counter);
+		      System.out.println(counter + " " + coin[i]);
+		  }
+		return balance;
 
 	
+	
+}
 	
 }

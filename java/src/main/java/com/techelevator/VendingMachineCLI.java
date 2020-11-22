@@ -69,6 +69,22 @@ public class VendingMachineCLI {
 
 					if (selection.equals("Select Product")) {
 
+						
+						
+						
+						
+						
+				
+						}
+					if (selection.equals("Finish Transaction")) {
+						funds.changeBack();
+						
+						
+						
+						System.out.println("\n" + "Thank you for your purchase.");
+						break;	
+					}
+					
 						List<Sellables> listOfStuff = inventoryList.getSellables();
 
 						for (Sellables groupOfItems : listOfStuff) {
@@ -139,13 +155,10 @@ public class VendingMachineCLI {
 												+ " please add more funds.");
 									}
 									break;
-
-//									if (selection.contentEquals("Finish Transaction")) {
-//										// do finish transaction stuff;
-//									}
-//
-//									if (choice.equals(MAIN_MENU_OPTION_EXIT)) {
-//									}
+								}
+								
+								if (choice.equals(MAIN_MENU_OPTION_EXIT)) {
+								}
 								}
 							}
 						}
@@ -153,9 +166,11 @@ public class VendingMachineCLI {
 					}
 				}
 			}
-		}
+		
+	
 
-	}
+	
+
 
 	public void processMoney() {
 
