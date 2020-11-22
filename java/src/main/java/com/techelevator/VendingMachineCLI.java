@@ -97,8 +97,8 @@ public class VendingMachineCLI {
 
 							// boolean isEnoughFunds = true
 							// holds user balance
+							Double currentFunds = funds.getBalance();
 							Double itemPrice = items.getPrice();
-							Double currentFunds = funds.deductBalance(itemPrice);
 							Double fundsAfterPurchase = currentFunds - itemPrice;
 
 							if (currentFunds < 0.75) {
@@ -112,7 +112,7 @@ public class VendingMachineCLI {
 							}
 								else if (currentFunds >= itemPrice) {
 									for (double i = currentFunds; i > itemPrice; i--) { 
-										itemPrice -= i;
+										i -= itemPrice;
 									
 										
 									}

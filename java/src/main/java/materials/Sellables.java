@@ -30,6 +30,7 @@ public abstract class Sellables {
 	}
 
 	public Double getPrice() {
+		
 		return price;
 	}
 
