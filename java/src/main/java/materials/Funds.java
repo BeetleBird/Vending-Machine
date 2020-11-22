@@ -10,7 +10,7 @@ public class Funds {
 		return balance;
 	}
 	public double getDeductBalance() {
-		return balance;
+		return this.balance;
 	}
 
 	public void setBalance(double amountAdded) {

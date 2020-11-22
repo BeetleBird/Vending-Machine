@@ -101,23 +101,36 @@ public class VendingMachineCLI {
 							Double itemPrice = items.getPrice();
 							Double fundsAfterPurchase = funds.getDeductBalance();
 
-							if (currentFunds < 0.75) {
+							 if (currentFunds < 0.75) {
 								System.out.println("Ope, enter more money");
 								break;
 							}
+//							 else if (currentFunds >= itemPrice) {
+//								 Double.valueOf(currentFunds - itemPrice) ;
+							 
+							 while (currentFunds >= itemPrice) {
+								
+								 if (fundsAfterPurchase < itemPrice) {
+									 break;
+								 }
+								
+									
+							 }
+							 
+							 if (fundsAfterPurchase < itemPrice) {
+								 System.out.println(
+										 "Ope, your current balance is " + fundsAfterPurchase + " please add more funds.");
+								 continue;
+							 }
+//							 if ( currentFunds >= itemPrice)
+//							 currentFunds = funds.getBalance() - itemPrice; {
+								 
+							
+								// funds.setDeductBalance(itemPrice);
+							
 
-							do {
-								//funds.setDeductBalance(itemPrice);
-								currentFunds = funds.getBalance() - itemPrice;
 
-							} while (currentFunds >= itemPrice);
-
-							if (currentFunds < itemPrice) {
-								System.out.println(
-										"Ope, your current balance is " + currentFunds + " please add more funds.");
-								continue;
-							}
-
+							 
 							if (someName.equals(items.getSlotLocation())) {
 
 								// TODO:
@@ -157,7 +170,7 @@ public class VendingMachineCLI {
 			}
 		}
 	}
-
+	
 	public void processMoney() {
 
 		String selection = "";
