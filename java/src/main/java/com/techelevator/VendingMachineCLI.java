@@ -99,24 +99,24 @@ public class VendingMachineCLI {
 							// holds user balance
 							Double currentFunds = funds.getBalance();
 							Double itemPrice = items.getPrice();
-							Double fundsAfterPurchase = currentFunds - itemPrice;
+							Double fundsAfterPurchase = funds.getDeductBalance();
 
 							if (currentFunds < 0.75) {
 								System.out.println("Ope, enter more money");
 								break;
+							}
 
-							} else if (currentFunds < itemPrice) {
+							do {
+								//funds.setDeductBalance(itemPrice);
+								currentFunds = funds.getBalance() - itemPrice;
+
+							} while (currentFunds >= itemPrice);
+
+							if (currentFunds < itemPrice) {
 								System.out.println(
 										"Ope, your current balance is " + currentFunds + " please add more funds.");
 								continue;
 							}
-								else if (currentFunds >= itemPrice) {
-									for (double i = currentFunds; i > itemPrice; i--) { 
-										i -= itemPrice;
-									
-										
-									}
-								}
 
 							if (someName.equals(items.getSlotLocation())) {
 
@@ -132,31 +132,31 @@ public class VendingMachineCLI {
 											"\n" + "You've selected " + items.getName() + "! " + items.getsnackMotto());
 									System.out.println(
 											"\n" + "There are " + newQty + " " + items.getName() + " remaining! ");
-									System.out.println("\n" + "You have $" + currentFunds + " left.");
+									System.out.println("\n" + "You have $" + funds.getDeductBalance() + " left.");
 
 								} else if (newQty <= 0) {
 									System.out.println("SOLD OUT");
 
 								}
+
 							}
-							
 
-						}
-
-						if (selection.contentEquals("Finish Transaction")) {
-							// do finish transaction stuff;
 						}
 
 					}
 
 				}
 
-				if (choice.equals(MAIN_MENU_OPTION_EXIT)) {
+				if (selection.contentEquals("Finish Transaction")) {
+					// do finish transaction stuff;
 				}
+
 			}
+
+			if (choice.equals(MAIN_MENU_OPTION_EXIT)) {
 			}
 		}
-	
+	}
 
 	public void processMoney() {
 

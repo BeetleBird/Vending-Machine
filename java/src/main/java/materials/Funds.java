@@ -5,9 +5,11 @@ public class Funds {
 	private double balance = 0;
 	private double getBalance; 
 	private double getDeductBalance;
+	
 	public double getBalance() {
-		
-		
+		return balance;
+	}
+	public double getDeductBalance() {
 		return balance;
 	}
 
@@ -15,7 +17,7 @@ public class Funds {
 		this.balance = this.balance + amountAdded;
 	}
 	
-	public void  deductBalance (double amountSubtracted) {
+	public void setDeductBalance (double amountSubtracted) {
 		
 	this.balance = this.balance - amountSubtracted;
 	}
