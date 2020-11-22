@@ -41,11 +41,6 @@ public class VendingMachineCLI {
 		this.menu = menu;
 	}
 
-	public Object getQuanity() { //////////////
-
-		return null;
-	}
-
 	public void run() {
 		while (true) {
 			String choice = (String) menu.getChoiceFromOptions(MAIN_MENU_OPTIONS);
@@ -75,7 +70,7 @@ public class VendingMachineCLI {
 					if (selection.equals("Select Product")) {
 
 						List<Sellables> listOfStuff = inventoryList.getSellables();
-
+					
 						for (Sellables groupOfItems : listOfStuff) {
 							Integer quanity = groupOfItems.getQuantity();
 							System.out.println(groupOfItems.getSlotLocation() + "|" + groupOfItems.getName() + "|"
@@ -101,36 +96,12 @@ public class VendingMachineCLI {
 							Double itemPrice = items.getPrice();
 							Double fundsAfterPurchase = funds.getDeductBalance();
 
-							 if (currentFunds < 0.75) {
+							if (currentFunds < 0.75) {
 								System.out.println("Ope, enter more money");
 								break;
 							}
-//							 else if (currentFunds >= itemPrice) {
-//								 Double.valueOf(currentFunds - itemPrice) ;
-							 
-							 while (currentFunds >= itemPrice) {
-								
-								 if (fundsAfterPurchase < itemPrice) {
-									 break;
-								 }
-								
-									
-							 }
-							 
-							 if (fundsAfterPurchase < itemPrice) {
-								 System.out.println(
-										 "Ope, your current balance is " + fundsAfterPurchase + " please add more funds.");
-								 continue;
-							 }
-//							 if ( currentFunds >= itemPrice)
-//							 currentFunds = funds.getBalance() - itemPrice; {
-								 
-							
-								// funds.setDeductBalance(itemPrice);
 							
 
-
-							 
 							if (someName.equals(items.getSlotLocation())) {
 
 								// TODO:
@@ -140,37 +111,55 @@ public class VendingMachineCLI {
 								int currentQty = items.getQuantity();
 								int newQty = currentQty - 1;
 								items.setQuantity(newQty);
-								if (newQty >= 1) {
-									System.out.println(
-											"\n" + "You've selected " + items.getName() + "! " + items.getsnackMotto());
-									System.out.println(
-											"\n" + "There are " + newQty + " " + items.getName() + " remaining! ");
-									System.out.println("\n" + "You have $" + funds.getDeductBalance() + " left.");
 
-								} else if (newQty <= 0) {
-									System.out.println("SOLD OUT");
+								while (funds.getBalance() >= items.getPrice()) {
 
-								}
+									if (newQty >= 1) {
+										funds.setDeductBalance(itemPrice);
+										System.out.println("\n" + "You've selected " + items.getName() + "! "
+												+ items.getsnackMotto());
+										System.out.println(
+												"\n" + "There are " + newQty + " " + items.getName() + " remaining! ");
+									}
+									System.out.println("\n" + "You have $" + funds.getBalance() + " left.");
+									menu.getChoiceFromOptions(PURCHASE_MENU);
+									continue;
+									if (fundsAfterPurchase < itemPrice) {
+										System.out.println("Ope, your current balance is " + fundsAfterPurchase
+												+ " please add more funds.");
+									}
 
-							}
+									else if (newQty <= 0) {
+										System.out.println("SOLD OUT");
 
-						}
+									}
+								
+								
+							
 
+						
+
+					
+
+						
+						
+						
+//						
+//						if (selection.contentEquals("Finish Transaction")) {
+//							// do finish transaction stuff;
+//						}
+////
+////						if (choice.equals(MAIN_MENU_OPTION_EXIT)) {
+////						}
+////							
+						
+						
+						
+						
+				
+			
 					}
 
-				}
-
-				if (selection.contentEquals("Finish Transaction")) {
-					// do finish transaction stuff;
-				}
-
-			}
-
-			if (choice.equals(MAIN_MENU_OPTION_EXIT)) {
-			}
-		}
-	}
-	
 	public void processMoney() {
 
 		String selection = "";
