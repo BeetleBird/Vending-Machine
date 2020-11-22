@@ -97,8 +97,8 @@ public class VendingMachineCLI {
 
 							// boolean isEnoughFunds = true
 							// holds user balance
-							Double currentFunds = funds.getBalance();
 							Double itemPrice = items.getPrice();
+							Double currentFunds = funds.deductBalance(itemPrice);
 							Double fundsAfterPurchase = currentFunds - itemPrice;
 
 							if (currentFunds < 0.75) {
@@ -109,15 +109,14 @@ public class VendingMachineCLI {
 								System.out.println(
 										"Ope, your current balance is " + currentFunds + " please add more funds.");
 								continue;
-								
-							} else if (currentFunds >= itemPrice) {
-								for (double i = currentFunds; i > itemPrice; i--) { // money not being deducted after
-																					// purchase
-									i -= i;
-
-//								}
-
 							}
+								else if (currentFunds >= itemPrice) {
+									for (double i = currentFunds; i > itemPrice; i--) { 
+										itemPrice -= i;
+									
+										
+									}
+								}
 
 							if (someName.equals(items.getSlotLocation())) {
 
@@ -133,14 +132,14 @@ public class VendingMachineCLI {
 											"\n" + "You've selected " + items.getName() + "! " + items.getsnackMotto());
 									System.out.println(
 											"\n" + "There are " + newQty + " " + items.getName() + " remaining! ");
-									System.out.println("\n" + "You have $" + fundsAfterPurchase + " left.");
+									System.out.println("\n" + "You have $" + currentFunds + " left.");
 
 								} else if (newQty <= 0) {
 									System.out.println("SOLD OUT");
 
 								}
-
 							}
+							
 
 						}
 
@@ -157,7 +156,7 @@ public class VendingMachineCLI {
 			}
 			}
 		}
-	}
+	
 
 	public void processMoney() {
 
