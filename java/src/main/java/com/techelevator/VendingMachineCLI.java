@@ -78,7 +78,7 @@ public class VendingMachineCLI {
 						}
 					if (selection.equals("Finish Transaction")) {
 						funds.changeBack();
-						
+						Inventory.auditLog();
 						
 						
 						System.out.println("\n" + "Thank you for your purchase.");
@@ -132,7 +132,7 @@ public class VendingMachineCLI {
 									if (newQty >= 1) {
 										funds.setDeductBalance(itemPrice); 
 										
-										
+										                            
 								
 										System.out.println("\n" + "You've selected " + items.getName() + "! "
 												+ items.getsnackMotto());
@@ -158,6 +158,7 @@ public class VendingMachineCLI {
 								}
 								
 								if (choice.equals(MAIN_MENU_OPTION_EXIT)) {
+								
 								}
 								}
 							}
