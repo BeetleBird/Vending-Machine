@@ -1,16 +1,24 @@
 package materials;
+
 import java.time.LocalDateTime;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
+import java.security.Timestamp;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
 import com.techelevator.VendingMachineCLI;
 import com.techelevator.view.Menu;
+
 import java.time.LocalDate;
+
 public class Inventory {
 
 	private List<Sellables> sellablesList = new ArrayList<Sellables>();
@@ -58,26 +66,28 @@ public class Inventory {
 		return this.sellablesList;
 	}
 
-	public static void auditLog() {
-		
+	public void auditLog() {
 
 		String fileName = "Log.txt";
 		File newFileFolder = new File(fileName);
 		try {
-		PrintWriter log = new PrintWriter(newFileFolder.getAbsoluteFile());
-		LocalDateTime dasDate = LocalDateTime.of(2020, 11, 22, 4, 40, 30);
-		log.write(dasDate.getMonthValue());
-		log.write(dasDate.getDayOfMonth());
-		log.write(dasDate.getYear());
-		log.write(dasDate.getHour());
-		log.write(dasDate.getMinute());
-		log.write(dasDate.getSecond());
-	} 
-	catch (FileNotFoundException e) {
-		System.out.println("file read error");
-	}
+			PrintWriter log = new PrintWriter(newFileFolder.getAbsoluteFile());
+			LocalDateTime dasDate = LocalDateTime.of(2020, 11, 22, 4, 40, 30);
+			
+			log.write(dasDate.getMonthValue());
+			log.write(dasDate.getDayOfMonth());
+			log.write(dasDate.getYear());
+			log.write(dasDate.getHour());
+			log.write(dasDate.getMinute());
+			log.write(dasDate.getSecond());
+			
+			log.flush();
+			log.close();
+		} catch (FileNotFoundException e) {
+			System.out.println("file read error");
+		}
 		
+
 	}
+
 }
-
-

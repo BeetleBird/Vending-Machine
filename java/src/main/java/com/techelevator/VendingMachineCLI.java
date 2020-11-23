@@ -5,9 +5,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
 import com.techelevator.view.Menu;
-
 import materials.Funds;
 import materials.Inventory;
 import materials.Sellables;
@@ -78,7 +76,7 @@ public class VendingMachineCLI {
 						}
 					if (selection.equals("Finish Transaction")) {
 						funds.changeBack();
-						Inventory.auditLog();
+						
 						
 						
 						System.out.println("\n" + "Thank you for your purchase.");
@@ -134,7 +132,7 @@ public class VendingMachineCLI {
 										
 										                            
 								
-										System.out.println("\n" + "You've selected " + items.getName() + "! "
+										System.out.println("\n" + "You've selected " + items.getName() + " for $" + items.getPrice() + ". "
 												+ items.getsnackMotto());
 
 										System.out.println(
@@ -158,6 +156,9 @@ public class VendingMachineCLI {
 								}
 								
 								if (choice.equals(MAIN_MENU_OPTION_EXIT)) {
+									inventoryList.auditLog();
+								
+									
 								
 								}
 								}
