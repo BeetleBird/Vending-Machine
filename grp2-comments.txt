@@ -1,0 +1,21 @@
+1. Setup of the classes and inheritance is good.
+
+2. There is an empty if option on Line 68: 
+if (selection.equals("Select Product")) {
+
+If there is nothing inside an if block, then there is no need
+for the block at all.
+
+3. For the option to exit the application, consider using 
+System.exit(1);
+
+Like so:
+if (choice.equals(MAIN_MENU_OPTION_EXIT)) {
+	inventoryList.auditLog();
+	System.exit(1);
+}
+
+4. your auditLog method in Inventory.java looks strange. Perhaps it's unfinished
+functionality, for example you're hard coding a date of 2020-11-22. 
+
+5. Change should be displayed in proper coinage, if you had time to implement this.
