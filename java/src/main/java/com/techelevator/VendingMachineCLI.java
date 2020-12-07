@@ -67,112 +67,94 @@ public class VendingMachineCLI {
 
 					if (selection.equals("Select Product")) {
 
-						
-						
-						
-						
-						
-				
-						}
+					}
 					if (selection.equals("Finish Transaction")) {
 						funds.changeBack();
-						
-						
-						
+
 						System.out.println("\n" + "Thank you for your purchase.");
-						break;	
+						break;
 					}
-					
-						List<Sellables> listOfStuff = inventoryList.getSellables();
 
-						for (Sellables groupOfItems : listOfStuff) {
-							Integer quanity = groupOfItems.getQuantity();
-							System.out.println(groupOfItems.getSlotLocation() + "|" + groupOfItems.getName() + "|"
-									+ groupOfItems.getPrice() + "|" + groupOfItems.getSnackType() + "|" + quanity
-									+ " REMAINING");
+					List<Sellables> listOfStuff = inventoryList.getSellables();
 
+					for (Sellables groupOfItems : listOfStuff) {
+						Integer quanity = groupOfItems.getQuantity();
+						System.out.println(groupOfItems.getSlotLocation() + "|" + groupOfItems.getName() + "|"
+								+ groupOfItems.getPrice() + "|" + groupOfItems.getSnackType() + "|" + quanity
+								+ " REMAINING");
+
+					}
+
+					// 1. Let's ask the user what they want.
+					Scanner scanner = new Scanner(System.in);
+					System.out.println("\n" + "Select something to buy");
+					String someName = scanner.nextLine().toUpperCase();
+
+					// 2. Loop through the inventory list and see if we can find it.
+					for (Sellables items : listOfStuff) {
+
+						// TODO:
+						// - If you don't have enough money, you can't go into this if block.
+
+						Double currentFunds = funds.getBalance();
+						Double itemPrice = items.getPrice();
+
+						if (currentFunds < 0.75) {
+							System.out.println("Ope, enter more money");
+							break;
 						}
 
-						// 1. Let's ask the user what they want.
-						Scanner scanner = new Scanner(System.in);
-						System.out.println("\n" + "Select something to buy");
-						String someName = scanner.nextLine().toUpperCase();
-
-						// 2. Loop through the inventory list and see if we can find it.
-						for (Sellables items : listOfStuff) {
+						if (someName.equals(items.getSlotLocation())) {
 
 							// TODO:
-							// - If you don't have enough money, you can't go into this if block.
+							// - If the inventory is already zero, you can't deduct the qty, and
+							// therefore you can't buy
 
-						
-							Double currentFunds = funds.getBalance();
-							Double itemPrice = items.getPrice();
+							int currentQty = items.getQuantity();
+							int newQty = currentQty - 1;
+							items.setQuantity(newQty);
 
-							
+							while (funds.getBalance() >= items.getPrice()) {
 
-							if (currentFunds < 0.75) {
-								System.out.println("Ope, enter more money");
+								if (newQty >= 1) {
+									funds.setDeductBalance(itemPrice);
+
+									System.out.println("\n" + "You've selected " + items.getName() + " for $"
+											+ items.getPrice() + ". " + items.getsnackMotto());
+
+									System.out.println(
+											"\n" + "There are " + newQty + " " + items.getName() + " remaining! ");
+
+								}
+
+								if (newQty <= 0) {
+									System.out.println("SOLD OUT");
+								}
+
+								System.out.println("\n" + "You have $" + funds.getBalance() + " left.");
+
+								if (currentFunds < itemPrice) {
+									System.out.println(
+											"Ope, your current balance is " + currentFunds + " please add more funds.");
+								}
 								break;
 							}
+							if (choice.equals(MAIN_MENU_OPTION_EXIT)) {
+								inventoryList.auditLog();
+								System.out.println("Thank you! Come Again!");
+								System.exit(0);
 
-							if (someName.equals(items.getSlotLocation())) {
+				
 
-								// TODO:
-								// - If the inventory is already zero, you can't deduct the qty, and
-								// therefore you can't buy
-
-								int currentQty = items.getQuantity();
-								int newQty = currentQty - 1;
-								items.setQuantity(newQty);
-
-								while (funds.getBalance() >= items.getPrice()) {
-
-									if (newQty >= 1) {
-										funds.setDeductBalance(itemPrice); 
-										
-										                            
-								
-										System.out.println("\n" + "You've selected " + items.getName() + " for $" + items.getPrice() + ". "
-												+ items.getsnackMotto());
-
-										System.out.println(
-												"\n" + "There are " + newQty + " " + items.getName() + " remaining! ");
-										
-									}
-
-
-
-									if (newQty <= 0) {
-										System.out.println("SOLD OUT");
-									}
-
-									System.out.println("\n" + "You have $" + funds.getBalance() + " left.");
-
-									if (currentFunds < itemPrice) {
-										System.out.println("Ope, your current balance is " + currentFunds
-												+ " please add more funds.");
-									}
-									break;
-								}
-								
-								if (choice.equals(MAIN_MENU_OPTION_EXIT)) {
-									inventoryList.auditLog();
-								
-									
-								
-								}
-								}
 							}
-						}
 
+						}
 					}
 				}
+
 			}
-		
-	
-
-	
-
+		}
+	}
 
 	public void processMoney() {
 

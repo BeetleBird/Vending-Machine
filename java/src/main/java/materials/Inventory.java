@@ -17,6 +17,8 @@ import java.util.Scanner;
 import com.techelevator.VendingMachineCLI;
 import com.techelevator.view.Menu;
 
+
+
 import java.time.LocalDate;
 
 public class Inventory {
@@ -69,25 +71,28 @@ public class Inventory {
 	public void auditLog() {
 
 		String fileName = "Log.txt";
-		File newFileFolder = new File(fileName);
-		try {
-			PrintWriter log = new PrintWriter(newFileFolder.getAbsoluteFile());
-			LocalDateTime dasDate = LocalDateTime.of(2020, 11, 22, 4, 40, 30);
+		File newFile = new File(fileName);
+
+		try (PrintWriter log = new PrintWriter(newFile.getAbsoluteFile())) {
+			LocalDateTime dasDate = LocalDateTime.now();
 			
+			log.write(("What time is it?" + dasDate));
+			
+
 			log.write(dasDate.getMonthValue());
 			log.write(dasDate.getDayOfMonth());
 			log.write(dasDate.getYear());
 			log.write(dasDate.getHour());
 			log.write(dasDate.getMinute());
 			log.write(dasDate.getSecond());
-			
-			log.flush();
-			log.close();
-		} catch (FileNotFoundException e) {
-			System.out.println("file read error");
-		}
-		
+		} catch (FileNotFoundException e1) {
 
+			System.out.println("Something went wrong.");
+			
+			// e1.printStackTrace();
+		}
+
+		
 	}
 
 }
