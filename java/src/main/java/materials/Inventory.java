@@ -9,9 +9,11 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.security.Timestamp;
 import java.sql.Date;
+import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Scanner;
 import com.techelevator.VendingMachineCLI;
@@ -22,6 +24,8 @@ import com.techelevator.view.Menu;
 import java.time.LocalDate;
 
 public class Inventory {
+	Menu menu = new Menu(System.in, System.out);
+	VendingMachineCLI cli = new VendingMachineCLI(menu);
 
 	private List<Sellables> sellablesList = new ArrayList<Sellables>();
 
@@ -70,21 +74,24 @@ public class Inventory {
 
 	public void auditLog() {
 
+		List<String> dateTime = new ArrayList<String>();
 		String fileName = "Log.txt";
 		File newFile = new File(fileName);
-
+		
 		try (PrintWriter log = new PrintWriter(newFile.getAbsoluteFile())) {
 			LocalDateTime dasDate = LocalDateTime.now();
-			
-			log.write(("What time is it?" + dasDate));
-			
-
-			log.write(dasDate.getMonthValue());
-			log.write(dasDate.getDayOfMonth());
-			log.write(dasDate.getYear());
-			log.write(dasDate.getHour());
-			log.write(dasDate.getMinute());
-			log.write(dasDate.getSecond());
+			for (int i =0; i < dateTime.size(); i++) {
+				dateTime.addAll(dateTime);
+			}
+			log.write()
+			log.write(dateTime.size());
+		
+//			log.write(dasDate.getMonthValue());
+//			log.write(dasDate.getDayOfMonth());
+//			log.write(dasDate.getYear());
+//			log.write(dasDate.getHour());
+//			log.write(dasDate.getMinute());
+//			log.write(dasDate.getSecond());
 		} catch (FileNotFoundException e1) {
 
 			System.out.println("Something went wrong.");
@@ -94,5 +101,12 @@ public class Inventory {
 
 		
 	}
+	public void toString() {
+		SimpleDateFormat  timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss");
+		String doWhat = "What time is it?" + timeStamp.format(Calendar.getInstance().getTime());  
+		getSellables();
+	}
+	
+	
 
 }

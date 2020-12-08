@@ -125,7 +125,6 @@ public class VendingMachineCLI {
 									System.out.println(
 											"\n" + "There are " + newQty + " " + items.getName() + " remaining! ");
 
-								}
 
 								if (newQty <= 0) {
 									System.out.println("SOLD OUT");
@@ -139,10 +138,6 @@ public class VendingMachineCLI {
 								}
 								break;
 							}
-							if (choice.equals(MAIN_MENU_OPTION_EXIT)) {
-								inventoryList.auditLog();
-								System.out.println("Thank you! Come Again!");
-								System.exit(0);
 
 				
 
@@ -152,6 +147,11 @@ public class VendingMachineCLI {
 					}
 				}
 
+			}
+			if (choice.equals(MAIN_MENU_OPTION_EXIT)) {
+				inventoryList.auditLog();
+				System.out.println("Thank you! Come Again!");
+				System.exit(0);
 			}
 		}
 	}
