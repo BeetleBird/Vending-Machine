@@ -1,8 +1,14 @@
 package com.techelevator;
 
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Scanner;
 import com.techelevator.view.Menu;
@@ -29,6 +35,7 @@ public class VendingMachineCLI {
 		cli.run();
 
 	}
+	
 
 	public Object inventoryList() {
 		// TODO Auto-generated method stub
@@ -38,6 +45,7 @@ public class VendingMachineCLI {
 	public VendingMachineCLI(Menu menu) {
 		this.menu = menu;
 	}
+
 
 	public void run() {
 		while (true) {
@@ -95,6 +103,10 @@ public class VendingMachineCLI {
 
 						// TODO:
 						// - If you don't have enough money, you can't go into this if block.
+						
+						
+						
+					
 
 						Double currentFunds = funds.getBalance();
 						Double itemPrice = items.getPrice();
@@ -125,21 +137,18 @@ public class VendingMachineCLI {
 									System.out.println(
 											"\n" + "There are " + newQty + " " + items.getName() + " remaining! ");
 
+									if (newQty <= 0) {
+										System.out.println("SOLD OUT");
+									}
 
-								if (newQty <= 0) {
-									System.out.println("SOLD OUT");
+									System.out.println("\n" + "You have $" + funds.getBalance() + " left.");
+
+									if (currentFunds < itemPrice) {
+										System.out.println("Ope, your current balance is " + currentFunds
+												+ " please add more funds.");
+									}
+									break;
 								}
-
-								System.out.println("\n" + "You have $" + funds.getBalance() + " left.");
-
-								if (currentFunds < itemPrice) {
-									System.out.println(
-											"Ope, your current balance is " + currentFunds + " please add more funds.");
-								}
-								break;
-							}
-
-				
 
 							}
 
@@ -149,7 +158,7 @@ public class VendingMachineCLI {
 
 			}
 			if (choice.equals(MAIN_MENU_OPTION_EXIT)) {
-				inventoryList.auditLog();
+				auditLog();
 				System.out.println("Thank you! Come Again!");
 				System.exit(0);
 			}
@@ -182,5 +191,53 @@ public class VendingMachineCLI {
 		}
 
 	}
+	
+	//toString time/date works well
+	//right now, log only stores last choice, not entire day
+	//maybe implementing a list and/or loop somewhere to store entire day
+	
+	
+	public String toStringLog() {
+		
+		SimpleDateFormat timeStamp = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss aa");
+		String purchase = (String) menu.getChoiceFromOptions(PURCHASE_MENU);
+		DecimalFormat df2 = new DecimalFormat("#.##");
+		String getBal = df2.format(funds.getBalance());
+		String getChange = df2.format(funds.changeBack());
+																										//not right
+		return " > " + timeStamp.format(Calendar.getInstance().getTime()) + " " + purchase +  ": " + "$" + getBal + "$" + getChange;
+		
+	}
+	
+	public void auditLog() {
+
+		List<String> dateTime = new ArrayList<String>();
+		String fileName = "Log.txt";
+		File newFile = new File(fileName);
+		
+		try (PrintWriter log = new PrintWriter(newFile.getAbsoluteFile())) {
+			LocalDateTime dasDate = LocalDateTime.now();
+			for (int i =0; i < dateTime.size(); i++) {
+				dateTime.addAll(dateTime);
+			}
+			log.write(toStringLog());
+			log.write(dateTime.size());
+		
+//			log.write(dasDate.getMonthValue());
+//			log.write(dasDate.getDayOfMonth());
+//			log.write(dasDate.getYear());
+//			log.write(dasDate.getHour());
+//			log.write(dasDate.getMinute());
+//			log.write(dasDate.getSecond());
+		} catch (FileNotFoundException e1) {
+
+			System.out.println("Something went wrong.");
+			
+			// e1.printStackTrace();
+		}
+
+		
+	}
+	
 
 }

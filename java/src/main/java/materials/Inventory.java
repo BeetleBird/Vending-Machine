@@ -24,8 +24,9 @@ import com.techelevator.view.Menu;
 import java.time.LocalDate;
 
 public class Inventory {
-	Menu menu = new Menu(System.in, System.out);
-	VendingMachineCLI cli = new VendingMachineCLI(menu);
+	
+	
+	
 
 	private List<Sellables> sellablesList = new ArrayList<Sellables>();
 
@@ -72,41 +73,37 @@ public class Inventory {
 		return this.sellablesList;
 	}
 
-	public void auditLog() {
-
-		List<String> dateTime = new ArrayList<String>();
-		String fileName = "Log.txt";
-		File newFile = new File(fileName);
-		
-		try (PrintWriter log = new PrintWriter(newFile.getAbsoluteFile())) {
-			LocalDateTime dasDate = LocalDateTime.now();
-			for (int i =0; i < dateTime.size(); i++) {
-				dateTime.addAll(dateTime);
-			}
-			log.write()
-			log.write(dateTime.size());
-		
-//			log.write(dasDate.getMonthValue());
-//			log.write(dasDate.getDayOfMonth());
-//			log.write(dasDate.getYear());
-//			log.write(dasDate.getHour());
-//			log.write(dasDate.getMinute());
-//			log.write(dasDate.getSecond());
-		} catch (FileNotFoundException e1) {
-
-			System.out.println("Something went wrong.");
-			
-			// e1.printStackTrace();
-		}
-
-		
-	}
-	public void toString() {
-		SimpleDateFormat  timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss");
-		String doWhat = "What time is it?" + timeStamp.format(Calendar.getInstance().getTime());  
-		getSellables();
-	}
+//	public void auditLog() {
+//
+//		List<String> dateTime = new ArrayList<String>();
+//		String fileName = "Log.txt";
+//		File newFile = new File(fileName);
+//		
+//		try (PrintWriter log = new PrintWriter(newFile.getAbsoluteFile())) {
+//			LocalDateTime dasDate = LocalDateTime.now();
+//			for (int i =0; i < dateTime.size(); i++) {
+//				dateTime.addAll(dateTime);
+//			}
+//			log.write(toStringLog());
+//			log.write(dateTime.size());
+//		
+////			log.write(dasDate.getMonthValue());
+////			log.write(dasDate.getDayOfMonth());
+////			log.write(dasDate.getYear());
+////			log.write(dasDate.getHour());
+////			log.write(dasDate.getMinute());
+////			log.write(dasDate.getSecond());
+//		} catch (FileNotFoundException e1) {
+//
+//			System.out.println("Something went wrong.");
+//			
+//			// e1.printStackTrace();
+//		}
+//
+//		
+//	}
+//	
 	
 	
-
+	
 }
