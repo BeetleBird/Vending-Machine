@@ -201,9 +201,11 @@ public class VendingMachineCLI {
 		
 		SimpleDateFormat timeStamp = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss aa");
 		String purchase = (String) menu.getChoiceFromOptions(PURCHASE_MENU);
+		
 		DecimalFormat df2 = new DecimalFormat("#.##");
+		
 		String getBal = df2.format(funds.getBalance());
-		String getChange = df2.format(funds.changeBack());
+		//String getChange = df2.format(funds.balance);
 																										//not right
 		return " > " + timeStamp.format(Calendar.getInstance().getTime()) + " " + purchase +  ": " + "$" + getBal + "$" + getChange;
 		

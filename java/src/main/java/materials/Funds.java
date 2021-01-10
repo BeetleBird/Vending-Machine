@@ -38,12 +38,6 @@ public class Funds {
 		return balance;
 
 }
-	public void setDeductBalance(String itemPrice) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
 	
 	
 	
